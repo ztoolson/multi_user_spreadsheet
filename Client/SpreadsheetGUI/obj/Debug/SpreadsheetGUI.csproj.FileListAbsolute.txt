@@ -1,0 +1,80 @@
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe.config
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.pdb
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\AbstractSpreadsheet.dll
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.dll
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\Formula.dll
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\Evaluator.dll
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\AbstractSpreadsheet.pdb
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\AbstractSpreadsheet.xml
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.pdb
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.xml
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\Formula.pdb
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\Evaluator.pdb
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csprojResolveAssemblyReference.cache
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.SpreadsheetWindow.resources
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.Properties.Resources.resources
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csproj.GenerateResource.Cache
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.exe
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.pdb
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\Evaluator.xml
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\Formula.xml
+C:\Users\budge\Documents\Visual Studio 2012\Projects\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.XML
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe.config
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.XML
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.exe
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.SpreadsheetWindow.resources
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.Properties.Resources.resources
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Fall Semester 2013\All of your VS projects from the HD made during said semester\PS6(1)\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csproj.GenerateResource.Cache
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe.config
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.XML
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\Formula.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\Spreadsheet.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\Formula.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\Spreadsheet.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.xml
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.SpreadsheetWindow.resources
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.Properties.Resources.resources
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csproj.GenerateResource.Cache
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.exe
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe.config
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.XML
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.exe
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.exe
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetGUI.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Formula.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Spreadsheet.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\StringSocket.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Formula.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Spreadsheet.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\StringSocket.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetPanel.xml
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\obj\Debug\SpreadsheetGUI.csproj.GenerateResource.Cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\obj\Debug\SpreadsheetClient.Properties.Resources.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Control.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\Control.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\ParseMessage.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI\bin\Debug\ParseMessage.pdb

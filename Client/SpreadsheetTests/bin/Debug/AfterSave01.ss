@@ -1,0 +1,1 @@
+﻿<spreadsheet version="ps6"><cell><name>C7</name><contents>sd</contents></cell><cell><name>B2</name><contents>as</contents></cell><cell><name>G5</name><contents>1</contents></cell><cell><name>D3</name><contents>=G5</contents></cell></spreadsheet>

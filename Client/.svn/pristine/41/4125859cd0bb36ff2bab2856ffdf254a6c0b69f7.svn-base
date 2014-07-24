@@ -1,0 +1,720 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+//using SS;
+
+namespace SpreadsheetUtilities
+{
+    /// <summary>
+    /// Represents formulas written in standard infix notation using standard precedence
+    /// rules.  The allowed symbols are non-negative numbers written using 
+    /// double-precision floating-point syntax; variables that consist of a letter or 
+    /// underscore followed by zero or more letters, underscores, or digits; parentheses; 
+    /// and the four operator symbols +, -, *, and /.  
+    /// 
+    /// Spaces are significant only insofar that they delimit tokens.  For example, "xy" is
+    /// a single variable, "x y" consists of two variables "x" and y; "x23" is a single variable; 
+    /// and "x 23" consists of a variable "x" and a number "23".
+    /// 
+    /// Associated with every formula are two delegates:  a normalizer and a validator.  The
+    /// normalizer is used to convert variables into a canonical form, and the validator is 
+    /// used to add extra restrictions on the validity of a variable (beyond the standard 
+    /// requirement that it consist of a letter or underscore followed by zero or more letters,
+    /// underscores, of digits.)  Their use is described in detail in the constructor and 
+    /// method comments.
+    /// </summary>
+    public class Formula
+    {
+        //  The tokens of a Formula.
+        private IEnumerable<String> Tokens;
+        //  Will represent the formula as a string.
+        private String TheeFormula;
+
+        //Delegate
+        private delegate double Lookup(String v);
+        //Delegate declaration.
+        private FormulaEvaluator.Evaluator.Lookup lookedUpValue; 
+
+        /// <summary>
+        /// Creates a Formula from a string that consists of an infix expression written as
+        /// described in the class comment.  If the expression is syntactically invalid,
+        /// throws a FormulaFormatException with an explanatory Message.
+        /// 
+        /// The associated normalizer is the identity function, and the associated validator
+        /// maps every string to true.  
+        /// </summary>
+        public Formula(String formula) :
+            this(formula, s => s, s => true)
+        {
+
+            //First thing, call GetTokens on "formula", 
+            Tokens = GetTokens(formula);
+
+            //  Then pass Tokens to ValidSyntax Helper method.
+            //      If ValidSyntax() returns true, assign "TheeFormula" to Tokens.ToString().
+            if (ValidSyntax(Tokens))
+                TheeFormula = Tokens.ToString();
+        }
+
+        /// <summary>
+        /// Creates a Formula from a string that consists of an infix expression written as
+        /// described in the class comment.  If the expression is syntactically incorrect,
+        /// throws a FormulaFormatException with an explanatory Message.
+        /// 
+        /// The associated normalizer and validator are the second and third parameters,
+        /// respectively.  
+        /// 
+        /// If the formula contains a variable v such that normalize(v) is not a legal variable, 
+        /// throws a FormulaFormatException with an explanatory message. 
+        /// 
+        /// If the formula contains a variable v such that isValid(normalize(v)) is false,
+        /// throws a FormulaFormatException with an explanatory message.
+        /// 
+        /// Suppose that N is a method that converts all the letters in a string to upper case, and
+        /// that V is a method that returns true only if a string consists of one letter followed
+        /// by one digit.  Then:
+        /// 
+        /// new Formula("x2+y3", N, V) should succeed
+        /// new Formula("x+y3", N, V) should throw an exception, since V(N("x")) is false
+        /// new Formula("2x+y3", N, V) should throw an exception, since "2x+y3" is syntactically incorrect.
+        /// </summary>
+
+        public Formula(String formula, Func<string, string> normalize, Func<string, bool> isValid)
+        {
+            if (ReferenceEquals(formula, null))
+                throw new FormulaFormatException("Formula cannot be null.");
+
+            //  First get tokens from "formula"
+            Tokens = GetTokens(formula);
+
+            //  Then check to see that "formula" is of valid syntax.
+            ValidSyntax(Tokens);
+
+            //  If no exception is thrown, normalize.
+            //      Normalize each token and concatenate it to "TheeFormula".
+            foreach (string token in Tokens)
+            {
+                TheeFormula = TheeFormula + normalize(token);
+            }
+
+            //Now we need to normalize the tokens.
+            Tokens = GetTokens(TheeFormula);
+
+            //Check isValid Func for further validity, it check fails, throw exception.
+            if (!isValid(TheeFormula))      //UNCOVERED.
+                throw new FormulaFormatException("isValid delegate, determined formula to be invalid.");
+
+            //TheeFormula should be good to go now.                        
+            //  Then pass Tokens to ValidSyntax Helper method.
+            if (ValidSyntax(Tokens))
+                TheeFormula = Tokens.ToString();
+        }
+
+        /// <summary>
+        /// Evaluates this Formula, using the lookup delegate to determine the values of
+        /// variables.  When a variable symbol v needs to be determined, it should be looked 
+        /// up via lookup(normalize(v)). (Here, normalize is the normalizer that was passed to 
+        /// the constructor.)
+        /// 
+        /// For example, if L("x") is 2, L("X") is 4, and N is a method that converts all the letters 
+        /// in a string to upper case:
+        /// 
+        /// new Formula("x+7", N, s => true).Evaluate(L) is 11
+        /// new Formula("x+7").Evaluate(L) is 9
+        /// 
+        /// Given a variable symbol as its parameter, lookup returns the variable's value 
+        /// (if it has one) or throws an ArgumentException (otherwise).
+        /// 
+        /// If no undefined variables or divisions by zero are encountered when evaluating 
+        /// this Formula, the value is returned.  Otherwise, a FormulaError is returned.  
+        /// The Reason property of the FormulaError should have a meaningful explanation.
+        ///
+        /// This method should never throw an exception.  
+        /// </summary>
+        public object Evaluate(Func<string, double> lookup)
+        {   //  Return value.
+            double result = 0;
+            try
+            {
+                //  This delegate setup is borrowed from PS1.
+                lookedUpValue = new FormulaEvaluator.Evaluator.Lookup(lookup);
+
+                result = FormulaEvaluator.Evaluator.Evaluate(this.ToString(), lookedUpValue);   //CULPRIT??
+                //  lookedUpValue equals null?????
+                //THIS IS THROWING AN EXCEPTION WHEN IT SHOULD NOT!!!!
+
+                //result = FormulaEvaluator.Evaluator.Evaluate(this.ToString(), lookup);   
+                // hmmmmmmmm!
+                //result = FormulaEvaluator.Evaluator.Evaluate(this.ToString(), SS.LookUpMethod);   
+                return result;
+            }
+            catch (DivideByZeroException e)
+            {
+                return new FormulaError("Division by zero detected.");
+            }
+            catch (ArgumentException e)
+            {
+                if (e.Message == "Value does not fall within the expected range.")
+                    return new FormulaError("Invalid dependency Detected");
+                else if (e.Message == "Cannot divide by zero.")
+                    return new FormulaError("Cannot divide by zero.");
+                else
+                    throw e;
+            }
+        }
+
+        /// <summary>
+        /// Enumerates the normalized versions of all of the variables that occur in this 
+        /// formula.  No normalization may appear more than once in the enumeration, even 
+        /// if it appears more than once in this Formula.
+        /// 
+        /// For example, if N is a method that converts all the letters in a string to upper case:
+        ///         
+        /// new Formula("x+y*z", N, s => true).GetVariables() should enumerate "X", "Y", and "Z" 
+        /// new Formula("x+X*z", N, s => true).GetVariables() should enumerate "X" and "Z". 
+        /// new Formula("x+X*z").GetVariables() should enumerate "x", "X", and "z".
+        /// </summary>
+        public IEnumerable<String> GetVariables()
+        {
+            //Will return..
+            List<String> putVariables = new List<String>();
+            //Used in Tryparsing..
+            double outParse = 0;
+
+            //First check for empty formula
+            if ((this.TheeFormula == null) || (this.TheeFormula.Length == 0))
+                //Return a new empty IEnumerable.
+                return new List<String>();
+
+            //since IsVariable method returns true for doubles....
+            //  Manipulate this.TheeFormula
+            //  Start by grabbing this.Tokens
+            IEnumerable<String> grabTokens = this.Tokens.ToList();
+            //for each variable in grabTokens...
+            foreach (String token in grabTokens)
+            {
+                //If "token" is an operator, continue
+                if (IsOperator(token.Trim()))
+                    continue;
+                //Avoid duplicates
+                if (putVariables.Contains(token))
+                    continue;
+                //  If IsVariable is true, and I can't DoubleTryParse said token, 
+                //      and the receiving list does not already contain "token"..., and if token is not an operator..
+                if (IsVariable(token) && !Double.TryParse(token, out outParse))
+                {
+                    //add token to put variables.
+                    putVariables.Add(token);
+                }
+            }
+            return putVariables;
+        }
+
+        /// <summary>
+        /// Returns a string containing no spaces which, if passed to the Formula
+        /// constructor, will produce a Formula f such that this.Equals(f).  All of the
+        /// variables in the string should be normalized.
+        /// 
+        /// For example, if N is a method that converts all the letters in a string to upper case:
+        /// 
+        /// new Formula("x + y", N, s => true).ToString() should return "X+Y"
+        /// new Formula("x + Y").ToString() should return "x+Y"
+        /// </summary>
+        public override string ToString()
+        {
+            String formulaToString = null;
+
+            //Concatenate successive tokens to a string..
+            foreach (string token in this.Tokens.ToList())
+            {
+                formulaToString = formulaToString + token;
+            }
+            //Return space-less string.
+            return formulaToString;
+        }
+
+        /// <summary>
+        /// If obj is null or obj is not a Formula, returns false.  Otherwise, reports
+        /// whether or not this Formula and obj are equal.                                    
+        /// 
+        /// Two Formulae are considered equal if they consist of the same tokens in the
+        /// same order.  To determine token equality, all tokens are compared as strings 
+        /// except for numeric tokens, which are compared as doubles, and variable tokens,
+        /// whose normalized forms are compared as strings.
+        /// 
+        /// For example, if N is a method that converts all the letters in a string to upper case:
+        ///  
+        /// new Formula("x1+y2", N, s => true).Equals(new Formula("X1  +  Y2")) is true
+        /// new Formula("x1+y2").Equals(new Formula("X1+Y2")) is false
+        /// new Formula("x1+y2").Equals(new Formula("y2+x1")) is false
+        /// new Formula("2.0 + x7").Equals(new Formula("2.000 + x7")) is true
+        /// </summary>
+        public override bool Equals(object obj)
+        {   //  Null check...
+            try
+            {
+                if (obj.Equals(null))
+                { }
+            }
+            catch (NullReferenceException)
+            {
+                return false;
+            }
+            //  Parse guys.
+            double outLeft = 0;
+            double outRight = 0;
+
+            //First check of obj not being a formula
+            if (!(obj is Formula))
+                return false;
+
+            //Get this's tokens
+            IEnumerable<String> leftTokens = GetTokens(this.ToString());
+
+            //Make a normalized formula out of obj.
+            Formula objFormula = new Formula(obj.ToString());
+
+            //  Get obj's Tokens.
+            IEnumerable<String> rightTokens = GetTokens(objFormula.ToString());
+
+            //Now make arrays out of the IEnnumerables.
+            String[] leftTokensArray = leftTokens.ToArray();
+            String[] rightTokensArray = rightTokens.ToArray();
+
+            //  Now compare each IEnummerable token by token.
+            for (int pos = 0; pos < leftTokensArray.Length; pos++)
+            {
+                //My IsVariable returns true for doubles.
+                //call IsVariable.
+                //If they are both variables
+                if (IsVariable(leftTokensArray[pos]) && IsVariable(rightTokensArray[pos]))
+                {
+                    //  Double comparison.        //if this(left) can be parsed
+                    if (Double.TryParse(leftTokensArray[pos], out outLeft))
+                    {       //And obj(right) can be parsed.
+                        if (Double.TryParse(rightTokensArray[pos], out outRight))
+                        {       //If outs equal each other, continue
+                            if (outRight == outLeft)
+                                continue;
+                            else     // If they can both be parsed but they don't equal each other, return false.
+                                return false;
+                        }
+                        //  But obj can't..
+                        else
+                            return false;
+                    }   //Else if I cant Double parse current left position....
+                    else
+                    {
+                        //  but I can double parse current right position...
+                        if (Double.TryParse(rightTokensArray[pos], out outRight))
+                        {
+                            return false;
+                        }// Else if neither variables can be parsed as doubles.
+                        else
+                        {   //Then compare as strings, if equal.....
+                            if (leftTokensArray[pos].Equals(rightTokensArray[pos]))
+                                continue;
+                            else  //else if both variables don't equal each other as strings.
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+                //Else if they are not both variables.
+                else
+                {
+                    //  Left is variable, right isn't
+                    if (IsVariable(leftTokensArray[pos]) && !IsVariable(rightTokensArray[pos]))
+                        return false;
+                    //  Left isn't variable, right is
+                    if (!IsVariable(leftTokensArray[pos]) && IsVariable(rightTokensArray[pos]))
+                        return false;
+                    //  Else they are both not variables, compare strings.
+                    if (leftTokensArray[pos].Equals(rightTokensArray[pos]))
+                        continue;
+                    //else strings don't match, return false
+                    else
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Reports whether f1 == f2, using the notion of equality from the Equals method.
+        /// Note that if both f1 and f2 are null, this method should return true.  If one is
+        /// null and one is not, this method should return false.
+        /// </summary>
+        public static bool operator ==(Formula f1, Formula f2)
+        {   //If both are null....
+            if (ReferenceEquals(f1, f2))
+                return true;
+
+            //  If one is null and one is not...
+            if (ReferenceEquals(f1, null) && !ReferenceEquals(f2, null))
+            {
+                return false;
+            }
+            if (!ReferenceEquals(f1, null) && ReferenceEquals(f2, null))
+            {
+                return false;
+            }
+
+            //  If they are equal...
+            if (f1.Equals(f2))
+                return true;
+            //  If not...
+            else
+                return false;
+        }
+
+        /// <summary>
+        /// Reports whether f1 != f2, using the notion of equality from the Equals method.
+        /// Note that if both f1 and f2 are null, this method should return false.  If one is
+        /// null and one is not, this method should return true.
+        /// </summary>
+        public static bool operator !=(Formula f1, Formula f2)
+        {
+            if (ReferenceEquals(f1, f2))
+                return false;
+
+            //  If one is null and one is not...
+            if (ReferenceEquals(f1, null) && !ReferenceEquals(f2, null))
+            {
+                return true;
+            }
+            if (!ReferenceEquals(f1, null) && ReferenceEquals(f2, null))
+            {
+                return true;
+            }
+
+            //If they are equal...
+            if (f1.Equals(f2))
+                return false;
+            //  If not...
+            else
+                return true;
+        }
+
+        /// <summary>
+        /// Returns a hash code for this Formula.  If f1.Equals(f2), then it must be the
+        /// case that f1.GetHashCode() == f2.GetHashCode().  Ideally, the probability that two 
+        /// randomly-generated unequal Formulae have the same hash code should be 
+        /// extremely small.
+        /// </summary>
+        public override int GetHashCode()
+        {
+            int hashy = 7;
+            foreach (string token in GetTokens(this.ToString()))    //Super original, huh!?
+            {
+                foreach (char guy in token)
+                {
+                    hashy = hashy * 31 + guy;
+                }
+            }
+            return hashy;
+        }
+
+        /// <summary>
+        /// Given an expression, enumerates the tokens that compose it.  Tokens are left 
+        /// paren; right paren; one of the four operator symbols; a string consisting of a letter 
+        /// or underscore followed by zero or more letters, digits, or underscores; a double 
+        /// literal; and anything that doesn't match one of those patterns.  There are no 
+        /// empty tokens, and no token contains white space.
+        /// </summary>
+        private static IEnumerable<string> GetTokens(String formula)
+        {
+            // Patterns for individual tokens
+            String lpPattern = @"\(";
+            String rpPattern = @"\)";
+            String opPattern = @"[\+\-*/]";
+            String varPattern = @"[a-zA-Z_](?: [a-zA-Z_]|\d)*";
+            String doublePattern = @"(?: \d+\.\d* | \d*\.\d+ | \d+ ) (?: [eE][\+-]?\d+)?";
+            String spacePattern = @"\s+";
+
+            // Overall pattern
+            String pattern = String.Format("({0}) | ({1}) | ({2}) | ({3}) | ({4}) | ({5})",
+                                            lpPattern, rpPattern, opPattern, varPattern, doublePattern, spacePattern);
+
+
+            // Enumerate matching tokens that don't consist solely of white space.
+            foreach (String s in Regex.Split(formula, pattern, RegexOptions.IgnorePatternWhitespace))
+            {
+                if (!Regex.IsMatch(s, @"^\s*$", RegexOptions.Singleline))
+                {
+                    yield return s;
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method determines whether a given formula has the valid syntax.
+        /// </summary>
+        /// <param name="formula">IEnumerable of parsed tokens</param>
+        /// <returns>True if formula is valid, throws exception otherwise</returns>
+        private bool ValidSyntax(IEnumerable<string> formula)
+        {
+            // These will keep track of paren balance.
+            int leftParenCount = 0;
+            int rightParenCount = 0;
+
+            // Assign the IEnumerable into a String.
+            String tokensToString = formula.ToString();
+
+            //  Flag that corresponds to the first token in "formula".
+            bool firstTokenFlag = false;
+            //  Flag that corresponds to the last token in "formula".
+            bool lastTokenFlag = false;
+            //  Flag that corresponds for checking tokens following open parens or operators.
+            bool followOpenParenOrOperatorFlag = true;
+            //  Flag that will correspond to tokens following a number, variable or closing paren.
+            bool followNumberVariableOrClosingParenFlag = true;
+
+            //  Double that will be used in TryParsing the first token.
+            double firstTokenParse = 0;
+            //  Double that will be used in TryParsing the last token.
+            double lastTokenParse = 0;
+            //  Double that will be used in TryParsing tokens that follow open parens or operators.
+            double followOpenParenOrOperatorParse = 0;
+            //  Double that will be used in TryParsing tokens that follow a number, variable, or closing paren.
+            double followNumberVariableOrClosingParenParse = 0;
+
+
+            //  Assign the IEnumerable to an array.
+            String[] tokensToArray = formula.ToArray<String>();
+
+            //  Assign the IEnumerable to a List.
+            List<String> tokensToList = formula.ToList<String>();
+
+            //1. There must be at least one token.
+            //  Call GetTokens, and if the IEnumerable returned is empty, throw Exception.
+            //  If there are no chars in "formula"...
+            if (tokensToArray.Length == 0)
+                throw new FormulaFormatException("There are no tokens in the formula.");
+
+            //2. When reading tokens from left to right, 
+            //          at no point should the number of closing parentheses seen so far be greater than the 
+            //              number of opening parentheses seen so far.
+            //  First check to see if the formula contains parens to make debugging easier.
+            if (formula.Contains<String>("(") || formula.Contains<String>(")"))
+            {
+                foreach (string token in formula)
+                {
+                    if (token.Equals("("))
+                        leftParenCount++;
+                    if (token.Equals(")"))
+                        rightParenCount++;
+
+                    if (rightParenCount > leftParenCount)
+                        throw new FormulaFormatException("There is a paren imbalance in the formula.");
+                }
+            }
+
+            //3. The total number of opening parentheses must equal the total number of closing parentheses.
+            //      If after we have counted all the parens and the rights do not equal the lefts..
+            if (leftParenCount != rightParenCount)
+                throw new FormulaFormatException("The total number of opening parens does not equal the total number of closing parens.");
+
+            //4. The first token of an expression must be a number, a variable, or an opening parenthesis.
+            //  First check to see if first token is an operator.
+            if (IsOperator(tokensToArray[0]))
+                //  If it is throw an exception.
+                throw new FormulaFormatException("The first token in a formula cannot be an operator");
+
+            //  Then attempt to doubleTryParse the first token.
+            if (Double.TryParse(tokensToArray[0], out firstTokenParse))
+            {
+                firstTokenFlag = true;
+            }
+
+            //  If first position is a valid variable or double (just go with it)...
+            if (IsVariable(tokensToArray[0]))
+                firstTokenFlag = true;
+
+            //Now check for a opening paren.
+            if (tokensToArray[0].Equals("("))
+                firstTokenFlag = true;
+
+            //  If after checking the first token does not cause "firstTokenFlag" to be flipped to true...
+            if (firstTokenFlag == false)            //NOT COVERED   //DIFFICULT TO COVER WITH THE WAY THINGS ARE SET UP
+                throw new FormulaFormatException("The first token in the formula is not correctly formated.");
+
+            //5. The last token of an expression must be a number, a variable, or a closing parenthesis.
+            //   First check to see if the last token in the formula is an opperator.
+            if (IsOperator(tokensToList.ElementAt<String>(tokensToList.Count - 1)))
+                //  If last token is an operator, throw exception
+                throw new FormulaFormatException("The last token in a formula cannot be an operator.");
+
+            //  Then Attempt to parse the last token in "tokensToList".
+            if (Double.TryParse(tokensToList.ElementAt<String>(tokensToList.Count - 1), out lastTokenParse))
+                lastTokenFlag = true;
+
+            //  If the last position is a valid variable or double (just follow me)...
+            if (IsVariable(tokensToList.ElementAt<String>(tokensToList.Count - 1)))
+                lastTokenFlag = true;
+
+            //Now check for a closing paren...
+            if (tokensToList.ElementAt<String>(tokensToList.Count - 1).Equals(")"))
+                lastTokenFlag = true;
+
+            //  If after checking the last token does not cause "lastTokenFlag" to be flipped to true...
+            if (lastTokenFlag == false)                //DIFFICULT TO COVER WITH THE WAY THINGS ARE SET UP.
+                throw new FormulaFormatException("The last token in the formula is not correctly formated.");
+
+            //6. Any token that immediately follows an opening parenthesis or an operator 
+            //must be either a number, a variable, or an opening parenthesis.
+            for (int pos = 0; pos < tokensToArray.Length; pos++)
+            {// Start by checking second position in array.
+                if (pos > 0)
+                {   //  If the preceding token is an operator or opening paren...
+                    if (tokensToArray[pos - 1].Equals("+") || tokensToArray[pos - 1].Equals("-") || tokensToArray[pos - 1].Equals("*") || tokensToArray[pos - 1].Equals("/") || tokensToArray[pos - 1].Equals("("))
+                    {
+                        //  Check to see if the current token is an operator
+                        if (IsOperator(tokensToArray[pos]))
+                            //If current token is an operator immediately preceded by an operator, throw exception.
+                            throw new FormulaFormatException("An operator cannot be immediately followed by another operator.");
+
+                        // Check to see if the current token is a closing paren.
+                        if (tokensToArray[pos].Equals(")"))
+                            //  If a closing paren immediately follows an operator, throw exception.    
+                            throw new FormulaFormatException("A closing paren cannot immediately follow an operator.");
+
+                        //  If the current token is not a double, a variable, or a opening paren...
+                        if ((!Double.TryParse(tokensToArray[pos], out followOpenParenOrOperatorParse)) && !IsVariable(tokensToArray[pos]) && !tokensToArray[pos].Equals("("))
+                            //  Trip flag.
+                            followOpenParenOrOperatorFlag = false;      //NOT COVERED
+                    }
+                }
+                //  If at any point while walking the array, the flag has been moved to false...
+                if (followOpenParenOrOperatorFlag == false)
+                    //Throw exception.                                                              //NOT COVERED
+                    throw new FormulaFormatException("An incorrect token is following an operator or open paren.");
+            }   //<-- End of 6th check.
+
+            //7. Any token that immediately follows a number, a variable, 
+            //or a closing parenthesis must be either an operator or a closing parenthesis.
+            for (int pos = 0; pos < tokensToArray.Length; pos++)
+            {
+                //  Start at second position.
+                if (pos > 0)
+                {
+                    //If the preceding token is a number, variable, or closing paren...
+                    if ((Double.TryParse(tokensToArray[pos - 1], out followNumberVariableOrClosingParenParse)) /*|| IsVariable(tokensToArray[pos-1]) */|| tokensToArray[pos - 1].Equals(")"))
+                    {
+                        //  If current token is not an operator, or closing paren...
+                        if (!tokensToArray[pos].Equals("+") && !tokensToArray[pos].Equals("-") && !tokensToArray[pos].Equals("*") && !tokensToArray[pos].Equals("/") && !tokensToArray[pos].Equals(")"))
+                            //  Set flag to false.
+                            followNumberVariableOrClosingParenFlag = false;
+                    }
+                }
+                //  If at any point while walking the array, the flag has been move to false, throw exception.
+                if (followNumberVariableOrClosingParenFlag == false)
+                    throw new FormulaFormatException("An incorrect token is following a number, variable, or closing paren.");
+            }   //<-- End of 7th check. 
+
+            //  Else if no exceptions have been thrown, formula has valid syntax, return true.
+            return true;
+        }
+
+        /// <summary>
+        /// This method determines if a string is an invalid variable.
+        /// </summary>
+        /// <param name="variable">A string to be checked for variable validity</param>
+        /// <returns>Either true for a valid variable, or double, 
+        /// or throws FormulaFormatException. Never returns false</returns>
+        private bool IsVariable(string variable)
+        {   //  Used in tryParsing a token.
+            double outParse = 0;
+
+            //Return false if the variable is an operator.
+            if (IsOperator(variable))
+                return false;
+
+            //First thing check TryParse for returning true.
+            //  If a token can be tryparsed, return true,
+            //      If a token cannot be tryparsed, continue checking....
+            if (Double.TryParse(variable, out outParse))
+                return true;
+
+            ////******************OBSOLETE -- KIND OF -- WE'LL KEEP IT FOR NOW************************
+            ////  Check each char in "variable".
+            //foreach (char character in variable)    //THIS IS WHAT WE NEED TO CAHNGE FOR PS5.
+            //{
+            //    //if any char is not a letter, underscore or number...or some other stuff
+            //    if (!char.IsLetter(character) && !char.IsDigit(character) && !character.Equals('_') && !character.Equals('(') && !character.Equals(')'))    //SUSPECT
+            //    {
+            //        //just throw the exception here.
+            //        throw new FormulaFormatException("Invalid variable detected");
+            //    }
+            //}//****************OBSOLETE -- KIND OF -- WE'LL KEEP IT FOR NOW************************
+
+            //NEW FOR PS5.
+            //Implement new PS5 variable definition.
+            if (variable.Equals("(") && variable.Equals(")") && !Regex.IsMatch(variable, "^[a-z|A-Z]+[0-9]+$"))
+                throw new FormulaFormatException("Invalid variable by PS5 definition detected");
+            //NEW FOR PS5.
+
+
+            //  Else we will assume that "variable" is valid, return true.
+            return true;
+        }
+
+        /// <summary>
+        /// This method determines if a token is an operator.
+        /// </summary>
+        /// <param name="token">A token</param>
+        /// <returns>True/False if token is/is not an operator</returns>
+        private bool IsOperator(String token)
+        {// If the token is an operator, return true
+            if (token.Equals("+") || token.Equals("-") || token.Equals("*") || token.Equals("/"))
+                return true;
+            //if not, return false.
+            return false;
+        }
+    }       //<---- End of Formula Class
+
+    /// <summary>
+    /// Used to report syntactic errors in the argument to the Formula constructor.
+    /// </summary>
+    public class FormulaFormatException : Exception
+    {
+        /// <summary>
+        /// Constructs a FormulaFormatException containing the explanatory message.
+        /// </summary>
+        public FormulaFormatException(String message)
+            : base(message)
+        {
+        }
+    }
+
+    /// <summary>
+    /// Used as a possible return value of the Formula.Evaluate method.
+    /// </summary>
+    public struct FormulaError
+    {
+        /// <summary>
+        /// Constructs a FormulaError containing the explanatory reason.
+        /// </summary>
+        /// <param name="reason"></param>
+        public FormulaError(String reason)
+            : this()
+        {
+            Reason = reason;
+        }
+
+        /// <summary>
+        ///  The reason why this FormulaError was created.
+        /// </summary>
+        public string Reason
+        {
+
+            get;
+
+            private set;
+        }
+    }
+}
+

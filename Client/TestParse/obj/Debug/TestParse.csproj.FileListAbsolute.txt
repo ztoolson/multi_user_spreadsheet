@@ -1,0 +1,7 @@
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\bin\Debug\TestParse.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\bin\Debug\TestParse.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\bin\Debug\ParseMessage.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\bin\Debug\ParseMessage.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\obj\Debug\TestParse.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\obj\Debug\TestParse.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\TestParse\obj\Debug\TestParse.pdb

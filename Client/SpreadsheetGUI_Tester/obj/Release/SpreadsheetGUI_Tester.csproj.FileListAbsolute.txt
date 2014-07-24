@@ -1,0 +1,5 @@
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI_Tester\bin\Release\SpreadsheetGUI_Tester.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI_Tester\bin\Release\SpreadsheetGUI_Tester.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI_Tester\obj\Release\SpreadsheetGUI_Tester.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI_Tester\obj\Release\SpreadsheetGUI_Tester.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\SpreadsheetGUI_Tester\obj\Release\SpreadsheetGUI_Tester.pdb

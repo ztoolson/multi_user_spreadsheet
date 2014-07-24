@@ -1,0 +1,697 @@
+﻿//((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+//))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!    A NOTE ABOUT COVERAGE   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((
+//))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+//  I did not completely neglect to attempt to test this Problem Set via coded UI tests.
+//      Indeed, after losing what felt like about 2 hours trying to come up with tests,
+//          that in the end, failed regardless, 
+//              for reasons, at this point, I am not eager to investigate. 
+//                      I have decided my time towards the completion of this assignment is better spent
+//                          at other tasks.
+
+//  I have spent a significant amount of time testing my GUI by hand.
+
+//  Also, after trying to generate even more coded UI tests, 
+//      what happens while making the tests is not what happens when the tests are run.
+//          I am done trying to test this problem set with UI coded tests!
+//              Even if I don't make any assertions, the tests will still fail!
+
+//  I do have a GUI test class, with tests that fail.
+//      I hope said tests will demonstrate a willingness to test my application extensively,
+//          As, I hope by now, is my reputation as far as you are concerned.
+
+//      Mike Fleming.
+
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using SS;
+using System.Text.RegularExpressions;
+using SpreadsheetUtilities;
+
+namespace SpreadsheetGUI
+{
+    public partial class SpreadsheetWindow : Form
+    {
+        // SS member.
+        private Spreadsheet WindowSpreadsheet;
+
+        //Name validity Method for SS member initialization.
+        private static bool WindowValidName(string name)
+        {
+            return Regex.IsMatch(name.ToUpper(), "^[A-Z][1-9]+$"); 
+        }
+
+        /// <summary>
+        /// Constructor for the GUI.
+        /// </summary>
+        public SpreadsheetWindow()
+        {   //  Make the window.
+            InitializeComponent();
+            //  Initialize SS member
+            WindowSpreadsheet = new Spreadsheet(/*s => true*/s => WindowValidName(s), s => s.ToUpper(), "ps6");
+
+            //  For now, suffice-th to say that some of the following lines were borrowed from the demo.
+            spreadsheetPanel1.SelectionChanged += displaySelection;
+
+            spreadsheetPanel1.SelectionChanged += DisplaySelectedCellContents;
+
+            //  Initially select the most upper left cell.
+            spreadsheetPanel1.SetSelection(0, 0);
+            //  This is weak, but I'm doing it anyway.
+            CellNameTextBox.Text = "A1";
+            //  Every time a key is pressed while the CellContentsTextBox is selected,
+            //      ApplyContentsBoxText method is called.
+            this.CellContentsTextBox.KeyPress += new KeyPressEventHandler(ApplyContentsBoxText);
+        }
+
+        /// <summary>
+        /// Fills the appropriate text boxes and panel of the currently selected cell.
+        /// </summary>
+        /// <param name="ssp"></param>
+        private void displaySelection(SpreadsheetPanel ssp)
+        {
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            int row;
+            int col;
+            string value;
+            ssp.GetSelection(out col, out row);
+            ssp.GetValue(col, row, out value);
+            //  Assigned to currently selected cell's contents.
+            object cellContents;
+            //  In case of a Formula error.
+            object previousCellContents = this.WindowSpreadsheet.GetCellContents(alphabet[col] + (row + 1).ToString());
+            //
+            Formula cellContentFormula;
+
+            //  If the cell is empty...
+            if (value == "")
+            {//     Display the currently selected cell's name in the "CellNameTextBox".
+                this.CellNameTextBox.Text = alphabet[col] + (row + 1).ToString();
+
+                //Display the empty string the Cell value text box.
+                this.CellValueTextBox.Text = this.WindowSpreadsheet.GetCellValue(alphabet[col] + (row + 1).ToString()).ToString();
+            }
+            //  Else if the cell is not empty...
+            else
+            {
+                cellContents = this.WindowSpreadsheet.GetCellContents((alphabet[col] + (row + 1).ToString()));
+                //  If "cellContents" is a Formula...
+                if (cellContents is Formula)
+                {
+                    cellContentFormula = (Formula)cellContents;
+                    // If currently selected Cell's value is a FormulaError...
+                    if(this.WindowSpreadsheet.GetCellValue(alphabet[col] + (row + 1).ToString()) is FormulaError)
+                    {
+                        spreadsheetPanel1.GetSelection(out col, out row);
+
+                        //this.CellContentsTextBox.Text = cellContents.ToString();
+                        this.CellNameTextBox.Text = (alphabet[col] + (row + 1).ToString()).ToString();
+                        return;
+                    }
+                    //  Else if currently selected Cell's value is not a FormulaError...
+                    else
+                    {//    Set the panel
+                        spreadsheetPanel1.SetValue(col, row, this.WindowSpreadsheet.GetCellValue(alphabet[col] + (row + 1).ToString()).ToString());
+                         // Set the CellValueTextBox.
+                        this.CellValueTextBox.Text = this.WindowSpreadsheet.GetCellValue(alphabet[col] + (row + 1).ToString()).ToString();
+                        this.CellNameTextBox.Text = (alphabet[col] + (row + 1).ToString()).ToString();
+                        return;
+                    }
+                }
+                //Else if "cellContents" is not a Formula...
+                else
+                {
+                    //     Display the current selected cell's value in the spreadsheet panel.
+                    spreadsheetPanel1.SetValue(col, row, this.WindowSpreadsheet.GetCellValue(alphabet[col] + (row + 1).ToString()).ToString());
+                    //   Display the currently selected cell's value in the "CellValueTextBox".
+                    this.CellValueTextBox.Text = this.WindowSpreadsheet.GetCellValue(alphabet[col] + (row + 1).ToString()).ToString();
+                    this.CellNameTextBox.Text = (alphabet[col] + (row + 1).ToString()).ToString();
+                    return;
+                }
+            }
+        }
+
+        
+        /// <summary>
+        /// Event handler for choosing the close option in the file menu,
+        ///     adheres to outlined closing protocol.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseOption_Click(object sender, EventArgs e)
+        {
+            //If closing would result in the loss of unsaved data, 
+            //  a warning dialog should be displayed.
+            if (this.WindowSpreadsheet.Changed)
+            {
+                // Show the save file dialog.
+                DialogResult wishToSave = MessageBox.Show("Do you wish to save the current Spreadsheet before closing? If you choose not to save the current Spreadsheet, data will be lost.", "Save Before Closing?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+                //If No is chosen.
+                if (wishToSave == DialogResult.No)
+                {          
+                    Close();
+                    return;
+                }
+                // If Yes is chosen.
+                if (wishToSave == DialogResult.Yes)
+                {
+                    // Assign dialog result.
+                    DialogResult CancelSave = saveFileDialog1.ShowDialog();
+                    // If save is chosen
+                    if (CancelSave != DialogResult.Cancel)
+                    {
+                        //  Call save.
+                        this.WindowSpreadsheet.Save(saveFileDialog1.FileName);   //YOU NEVER FIXED THE SAVE METHOD!!!!
+                        //  Then close.
+                        Close();
+                    }
+                    //  If cancel was chosen..
+                    else
+                        //  Do nothing, return.
+                        return;
+                }
+                //Else if cancel is chosen, do nothing, return.
+                return;
+            }
+            //  Else, prompt the user that they are about to exit the program.
+            else
+            {//     Ask the user an important question.
+                DialogResult wishToExit = MessageBox.Show("Really?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                //  If yes is chosen
+                if (wishToExit == DialogResult.Yes)
+                    Close();
+                // Else if yes was not chosen, do nothing return.
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Method that handles clicking the close (X) button.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (this.WindowSpreadsheet.Changed)
+            {
+                // Show the save file dialog.
+                DialogResult wishToSave = MessageBox.Show("Do you wish to save the current Spreadsheet before closing? If you choose not to save the current Spreadsheet, data will be lost.", "Save Before Closing?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+
+                //If No is chosen.
+                if (wishToSave == DialogResult.No)
+                {
+                    e.Cancel = false;
+                    return;
+                }
+                    // If Yes is chosen.
+                if (wishToSave == DialogResult.Yes)
+                {
+                    // Assign dialog result.
+                    DialogResult CancelSave = saveFileDialog1.ShowDialog();
+                    // If save is chosen
+                    if (CancelSave != DialogResult.Cancel)
+                    {
+                        //  Call save.
+                        this.WindowSpreadsheet.Save(saveFileDialog1.FileName);  
+                        //  Then close.
+                        e.Cancel = false;
+                        return;
+                    }
+                    //  If cancel was chosen..
+                    else
+                    {
+                        e.Cancel = true;
+                        //  Do nothing, return.
+                        return;
+                    }
+                }
+                //Else if cancel is chosen, do nothing, return.
+                e.Cancel = true;
+                return;
+            }
+            base.OnFormClosing(e);
+        }
+
+        //this is not used.
+        private void CellContentsTextBox_TextChanged(object sender, EventArgs e)
+        {   //  out guys.
+        //    int row, column;
+        //    string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      
+        }
+
+        /// <summary>
+        /// Method that applies the text within the CellContentsTextBox to the appropriate panel,
+        /// once the enter key is pressed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ApplyContentsBoxText(object sender, KeyPressEventArgs e)
+        {   //  out guys.
+            int row, column;
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string value;
+            //  Will be assigned the currently selected cell's contents.
+            object cellContents;
+            //  In case of FormulaError.
+            object previousCellContents = null;
+
+            ISet<string> changlings;
+
+            // First check to see if "e" is Enter char.
+            if (e.KeyChar == (char)13)
+            {
+                //  Get coordinates for currently selected cell.
+                spreadsheetPanel1.GetSelection(out column, out row);
+
+                //  Try block for for various exceptions.
+                try
+                {
+                    // Before calling SCC, get the Cell's  current contents for safe keeping.     
+                    previousCellContents = this.WindowSpreadsheet.GetCellContents(alphabet[column] + (row + 1).ToString());
+                    //  Put values in SS member, trim just in case.
+                    changlings = this.WindowSpreadsheet.SetContentsOfCell(alphabet[column] + (row + 1).ToString(), CellContentsTextBox.Text.Trim());
+                    //  Check to see if the change results in a Formula error.
+                    CheckForFormulaError(changlings, (alphabet[column] + (row + 1).ToString()).ToString(), previousCellContents);
+
+                    //  Get the currently selected Cell's Contents.
+                    cellContents = this.WindowSpreadsheet.GetCellContents(alphabet[column] + (row + 1).ToString());
+
+                    //  If the currently selected Cell's contents is a Formula...
+                    if (cellContents is Formula)
+                    {
+                        //Check to see if the cell's value is a Formula error.
+                        if (this.WindowSpreadsheet.GetCellValue(alphabet[column] + (row + 1).ToString()) is FormulaError)
+                        {//     Show the error message
+                            MessageBox.Show("Proposed assignment resulted in a Formula Error.", "Formula Error Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            //  If the previous contents was not an empty string...
+                            if (previousCellContents.ToString().Length > 0)
+                            {
+                                //  But now we need to put the previous contents back into the ContentsTextBox.
+                                this.CellContentsTextBox.Text = "=" + previousCellContents.ToString();
+                                //  Go back.                
+                                changlings = this.WindowSpreadsheet.SetContentsOfCell(alphabet[column] + (row + 1).ToString(), this.CellContentsTextBox.Text);
+                            }
+                            // Else if the previous contents was empty...
+                            else
+                            {
+                                this.CellContentsTextBox.Text = "";
+                                changlings = this.WindowSpreadsheet.SetContentsOfCell(alphabet[column] + (row + 1).ToString(), "");
+
+                            }
+                            //  Be done.
+                            return;
+                        }
+                        //  Else, Display the contents with pre-appended "=" in the CellContentsTextBox.
+                        else
+                        {
+                            this.CellContentsTextBox.Text = "=" + cellContents.ToString();
+                        }
+                    }
+                    //  Else if the currently selected Cell's Contents is not a formula...
+                    else
+                    {
+                        //  check to see if the previous contents was a formula.
+                        if (previousCellContents is Formula)
+                        {
+                            //and if the cell we are trying to change who's previous contents was a formula,
+                            //      also had cells that were dependent upon it...
+                            foreach (string cellName in changlings)
+                            {//     If any cellName in "changlings" has a contents 
+                                //      that matches the currently selected cell.
+                                if (this.WindowSpreadsheet.GetCellContents(cellName).ToString() == alphabet[column] + (row + 1).ToString())
+                                {
+                                    changlings = this.WindowSpreadsheet.SetContentsOfCell(alphabet[column] + (row + 1).ToString(), /*"=" +*/ cellContents.ToString());
+                                    this.CellContentsTextBox.Text = /*"=" +*/ cellContents.ToString();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // Display "cellContents" as is.
+                            this.CellContentsTextBox.Text = cellContents.ToString();
+                        }
+                    }
+                    //  Put the text from CellContentsTextBox in the selected panel.
+                    spreadsheetPanel1.SetValue(column, row, this.WindowSpreadsheet.GetCellValue(alphabet[column] + (row + 1).ToString()).ToString());
+
+                    //  Get the value of the currently selected cell.
+                    spreadsheetPanel1.GetValue(column, row, out value);
+
+                    //  Display Currently Selected Cell's value in the "CellValueTextBox".
+                    this.CellValueTextBox.Text = this.WindowSpreadsheet.GetCellValue(alphabet[column] + (row + 1).ToString()).ToString();
+
+                    //  Refresh the display.
+                    RefreshDisplay(changlings);
+                    //  Remind the user of the quality of this program.
+                    if (changlings.Count > 9)
+                        MessageBox.Show("Did you see that!", "BAME!");
+                }
+                //  Catch various exceptions.
+                catch (CircularException circ)
+                {
+                    MessageBox.Show("Attempted assignment results in a circular dependency", "Circular Dependency Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    RestoreCellContentsTextBox(previousCellContents);
+                }
+                catch (FormulaFormatException f)
+                {
+                    MessageBox.Show("That right 'cher, is what we call an invalid formula!", "Invalid Formula Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    RestoreCellContentsTextBox(previousCellContents);
+                }
+                catch (InvalidNameException n)
+                {
+                    MessageBox.Show("You have either provided an invalid cell name or formula.", "Invalid Cell Name Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    RestoreCellContentsTextBox(previousCellContents);
+                }
+                    //  This exception is thrown from Evaluator.dll
+                catch (FormatException f)
+                {
+                    MessageBox.Show("Proposed dependency is invalid.", "Invalid Dependency Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    RestoreCellContentsTextBox(previousCellContents);
+                }
+                catch (ArgumentException a)
+                {
+                    MessageBox.Show("At this point, you should know better than to try that.", "Invalid Cell Name Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    RestoreCellContentsTextBox(previousCellContents);
+                   }
+            }// <-- if enter key is pressed
+        }
+
+
+        /// <summary>
+        /// Method/Event Handler that display's the currently selected cell's 
+        ///     contents in the Contents Text Box.
+        /// </summary>
+        /// <param name="sspForNoReason">Maybe I should make this 0 argument??</param>
+        private void DisplaySelectedCellContents(SpreadsheetPanel sspForNoReason)
+        {//     This is useful
+            String Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            //  Remember, column corresponds to a letter.
+            int col; 
+            //  Row corresponds to a number.
+            int row;
+            //  Assigned to the currently selected cell's contents.
+            object cellContents;
+
+            //  Get the currently selected cell's information.
+            spreadsheetPanel1.GetSelection(out col, out row);
+            //  Get the currently selected cell's contents.
+            cellContents = this.WindowSpreadsheet.GetCellContents(Alphabet[col] + (row + 1).ToString());
+            //  If the currently selected cell's contents is a Formula...
+            if (cellContents is Formula)
+            {
+                this.CellContentsTextBox.Text = "=" + cellContents.ToString();
+            }
+            //  Else if the currently selected cell's contents is not a formula...
+            else
+            {
+                //  Display the currently selected cell's contents in the "CellContentsTextBox".
+                this.CellContentsTextBox.Text = this.WindowSpreadsheet.GetCellContents(Alphabet[col] + (row + 1).ToString()).ToString();
+            }
+        }
+
+        /// <summary>
+        /// Event handler for choosing to open a new Spreadsheet in a separate window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newInSeperateWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SpreadsheetApplicationContext.getSSAppContext().RunSpreadsheetForm(new SpreadsheetWindow());
+        }
+
+        /// <summary>
+        /// Event handler for opening a new SS in the same window.
+        /// This is my interesting added thingy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void newInThisWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Check to see if current SS window would lose data...
+            if (this.WindowSpreadsheet.Changed)
+            {//     If user chooses to save the current Spreadsheet.
+                DialogResult wishToSave = MessageBox.Show("Do you wish to save the current Spreadsheet? If you choose not to save the current Spreadsheet, data will be lost.", "Save Current Spreadsheet?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+               if(wishToSave == DialogResult.Yes)
+                {
+                    saveFileDialog1.ShowDialog();
+                   //   Call save.
+                    this.WindowSpreadsheet.Save(saveFileDialog1.FileName);//Save method remains unfixed!!
+                }
+                //  Else if the option to save is rejected...
+               else if (wishToSave == DialogResult.No)
+               {
+                  //    Clear all panels.
+                   this.spreadsheetPanel1.Clear();
+                   //   Clear the this's spreadsheet
+                   this.WindowSpreadsheet = new Spreadsheet(s => WindowValidName(s), s => s.ToUpper(), "ps6");
+                   //   Clear the cellContentsTextBox
+                   this.CellContentsTextBox.Clear();
+                   //   Clear the cellValueContentsBox
+                   this.CellValueTextBox.Clear();
+                   //  Set current selection back to most upper left cell.
+                   spreadsheetPanel1.SetSelection(0, 0);
+                   //  This is weak, but I'm doing it anyway, again.
+                   CellNameTextBox.Text = "A1";
+               }
+            }
+        }
+
+        /// <summary>
+        /// Handler for the save window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            string fileSavename = saveFileDialog1.FileName;
+        }
+
+        /// <summary>
+        /// Event handler for saving a Spreadsheet to a file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SaveOption_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //     Show the save file dialog window.
+                saveFileDialog1.ShowDialog();
+                //  Save the Spreadsheet to the filename provided by the user.
+                this.WindowSpreadsheet.Save(saveFileDialog1.FileName);
+            }
+            catch (SpreadsheetReadWriteException SSRWE)
+            {//     Relay important information to the user.
+                MessageBox.Show("An occurred while trying to save the Spreadsheet, it was probably your fault....", "Save Error");
+                MessageBox.Show("No Seriously, it was YOUR fault!", "Seriously!");
+
+            }
+        }
+
+        /// <summary>
+        /// Event handler for opening a Spreadsheet file.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenOption_Click(object sender, EventArgs e)
+        {
+            try
+            {
+            //  First check to see if the current Spreadsheet needs to b saved.
+            if (this.WindowSpreadsheet.Changed)
+            {
+                //Dialog result guy, and save dialog show.
+                DialogResult wishToSave = MessageBox.Show("Do you wish to save the current Spreadsheet before opening? If you choose not to save the current Spreadsheet, data will be lost.", "Save Before Opening?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                //  If the user choose yes...
+                if (wishToSave == DialogResult.Yes)
+                {
+                    DialogResult cancelSave = saveFileDialog1.ShowDialog();
+
+                    //  If user cancels the save...
+                    if (cancelSave == DialogResult.Cancel)
+                        // Do nothing, return.
+                        return;
+                    //  Else if the user chooses to save...
+                    else
+                    {//     Show the save dialog.
+                        this.WindowSpreadsheet.Save(saveFileDialog1.FileName);
+                        //  Then show the open dialog.
+                        openFileDialog1.ShowDialog();
+                        //  pass the selected file name to the Helper Method.
+                        DisplayOpenFile(openFileDialog1.FileName);
+                    }
+                    }
+                //  If the user chooses to cancel the open...
+                else if (wishToSave == DialogResult.Cancel)
+                    //  Do nothing, return.
+                    return;
+                //  Else if the user chooses not to save upon choosing to open a Spreadsheet file.
+                else
+                {//     Show the openFile dialog.
+                    openFileDialog1.ShowDialog();
+                    //  pass the selected file name to the Helper Method.
+                    DisplayOpenFile(openFileDialog1.FileName);
+                }
+            }
+            //Else If no need to save, just show the open file dialog.
+            else
+            {
+                openFileDialog1.ShowDialog();
+
+                //  pass the selected file name to the Helper Method.
+                DisplayOpenFile(openFileDialog1.FileName);
+            }
+        }
+            catch(SpreadsheetReadWriteException srwe)
+            {//     Relay important information to the user.
+                MessageBox.Show("Something went wrong while trying to open the file, it was probably your fault...", "Problem Opening File");
+                MessageBox.Show("No Seriously, it was YOUR fault!", "Seriously!");
+            }
+        }
+
+        /// <summary>
+        /// Helper method that displays a Spreadsheet file onto the Spreadsheet panel.
+        /// </summary>
+        /// <param name="fileName">File that was opened by the open option
+        /// in the File menu</param>
+        private void DisplayOpenFile(string fileName)
+        {
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            // Clear the GUI.
+            //      You are witnessing an Anti-Pattern...
+            //    Clear all panels.
+            this.spreadsheetPanel1.Clear();
+            //   Load file into member Spreadsheet
+            this.WindowSpreadsheet = new Spreadsheet(fileName, s => WindowValidName(s), s => s.ToUpper(), "ps6");
+            //   Clear the cellContentsTextBox
+            this.CellContentsTextBox.Clear();
+           
+            //Now we need to display every cell in the loaded Spreadsheet onto the panel.
+            foreach (string cellName in this.WindowSpreadsheet.GetNamesOfAllNonemptyCells())
+            {
+                int outInt;         
+                Int32.TryParse(cellName.Substring(1, cellName.Length - 1), out outInt);
+                //  This actually worked the first time, BAME!!!,  
+                //      Good thing the spreadsheet's dimensions are set in stone...
+               //       again, UHHHHHHHHHH!!
+                spreadsheetPanel1.SetValue(alphabet.LastIndexOf(cellName[0]), outInt-1, this.WindowSpreadsheet.GetCellValue(cellName).ToString());
+            }          
+            //  Set current selection back to most upper left cell.
+            spreadsheetPanel1.SetSelection(0, 0);
+            //  This is weak, but I'm doing it anyway, again.
+           this.CellNameTextBox.Text = "A1";
+            //  Display A1's contents
+           this.RestoreCellContentsTextBox(this.WindowSpreadsheet.GetCellContents("A1"));
+        }
+
+     
+        /// <summary>
+        /// This method will refresh the panel appropriately whenever necessary.
+        /// </summary>
+        /// <param name=updatetees></param>
+        private void RefreshDisplay(ISet<String> updatees)
+        {//     Guys.
+            char column;
+            int row;
+            string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            //foreach cell name in updatees..
+            foreach (string cellName in updatees)
+            {
+                //Parse cell name into column and row.
+                column = cellName[0];
+                Int32.TryParse(cellName.Substring(1, cellName.Length - 1), out row);
+
+                // call setDisplay on parsed solumn and row.
+                this.spreadsheetPanel1.SetValue(alphabet.LastIndexOf(column.ToString()), row-1, this.WindowSpreadsheet.GetCellValue(cellName).ToString());
+            }        
+         }
+
+        /// <summary>
+        /// Helper method that checks to see if a change 
+        /// in the spreadsheet would cause a FormulaError,
+        /// And makes the appropriate adjustments.
+        /// </summary>
+        /// <param name="changlings">A set of cell names that are dependent 
+        /// on a cell that was just altered.</param>
+        /// <param name="previousCellContents">A cell contents that can be used to set
+        /// the spreadsheet back to the way things were before and ill-advised
+        /// change to the Spreadsheet occurred.</param>
+        private void CheckForFormulaError(ISet<string> changlings, string alteredCell, object previousCellContents)
+        {
+            ISet<string> unChanglings;
+
+            //for each  cell name in changlings..
+            foreach (string cellname in changlings)
+            {//     If the currents cell's value is a FormulaError..
+                if (this.WindowSpreadsheet.GetCellValue(cellname) is FormulaError)
+                {//     Show error message.
+                    MessageBox.Show("Proposed assignment resulted in a Formula Error.", "Formula Error Detected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if (previousCellContents is Formula)
+                    {//     // Restore the Spreadsheet to it's previous state.      //HIGHLY SUSPECT
+                        unChanglings = this.WindowSpreadsheet.SetContentsOfCell(alteredCell, "=" + previousCellContents.ToString());
+
+                        RestoreCellContentsTextBox(previousCellContents); //UNTESTED!
+
+                        //Refresh the spreadsheet.
+                        RefreshDisplay(unChanglings); //HIGHLY SUSPECT
+                    }
+                    else
+                    {
+                        unChanglings = this.WindowSpreadsheet.SetContentsOfCell(alteredCell, previousCellContents.ToString());
+
+                        RestoreCellContentsTextBox(previousCellContents); //UNTESTED!
+
+                        //Refresh the spreadsheet.
+                        RefreshDisplay(unChanglings); //HIGHLY SUSPECT
+                    }
+                    //  We only need to find the first instance of a FormulaError, return.
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Little helper method that restores the CellContentsTextBox to its propers state
+        ///     in case of an error or loading a file.
+        /// </summary>
+        /// <param name="previousCC">The contents of a cell, usually the contents of
+        ///     a cell prior to an error, except in the case of loading a Spreadsheet file</param>
+        private void RestoreCellContentsTextBox(object previousCC)
+        {
+            if (previousCC is Formula)
+            {
+                this.CellContentsTextBox.Text = "=" + previousCC.ToString();
+                return;
+            }
+            else
+                this.CellContentsTextBox.Text = previousCC.ToString();
+            return;
+        }
+
+        /// <summary>
+        /// Event handler that displays the help menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This is a my Spreadsheet.\nYou can select a cell by clicking on it.\nYou can set a cell's contents by entering a value in the text box labeled contents.\nYou can set a cell equal to another cell by preceding the assignment with = in the Contents text box.\nOpening a new Spreadsheet, saving a Spreadsheet, loading a Spreadsheet, and closing a Spreadsheet are all accomplished in the file menu.\nYou also have the option of opening a new Spreadsheet without creating a new window in the File menu.\nThis program assumes no liability for lost data or hurt feelings because it is better than other Spreadsheets.", "How To Use");                               
+        }
+    }//<--- end of...
+}

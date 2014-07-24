@@ -1,0 +1,29 @@
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\Evaluator\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\Evaluator\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\Evaluator\obj\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\Evaluator\obj\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Evaluator\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Evaluator\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Evaluator\obj\Debug\Evaluator.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Evaluator\obj\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Evaluator\obj\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Evaluator\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Evaluator\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Evaluator\obj\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Evaluator\obj\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Evaluator\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Evaluator\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Evaluator\obj\Debug\Evaluator.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Evaluator\obj\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Evaluator\obj\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Evaluator\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Evaluator\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Evaluator\obj\Debug\Evaluator.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Evaluator\obj\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Evaluator\obj\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Evaluator\obj\Debug\Evaluator.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Evaluator\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Evaluator\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Evaluator\obj\Debug\Evaluator.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Evaluator\obj\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Evaluator\obj\Debug\Evaluator.pdb

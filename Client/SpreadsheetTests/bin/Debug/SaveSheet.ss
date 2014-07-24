@@ -1,0 +1,1 @@
+﻿<spreadsheet version="default"><cell><name>B1</name><contents></contents></cell><cell><name>C1</name><contents>1</contents></cell><cell><name>A1</name><contents>1</contents></cell><cell><name>A2</name><contents>=C1+1</contents></cell><cell><name>B2</name><contents>=A1+C2</contents></cell><cell><name>C2</name><contents>=B1-A2</contents></cell></spreadsheet>

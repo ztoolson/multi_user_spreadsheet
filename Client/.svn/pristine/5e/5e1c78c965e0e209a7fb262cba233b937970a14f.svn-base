@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spreadsheet", "AbstractSpreadsheet\Spreadsheet.csproj", "{D8772B33-BF43-4FD3-A301-24C5483CD7F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E215A1B-1016-4E6B-9E0F-E90AFE6A72B6}"
+	ProjectSection(SolutionItems) = preProject
+		Evaluator.dll = Evaluator.dll
+		Evaluator.pdb = Evaluator.pdb
+		Formula.dll = Formula.dll
+		Formula.pdb = Formula.pdb
+		SpreadsheetPanel.dll = SpreadsheetPanel.dll
+		SpreadsheetPanel.pdb = SpreadsheetPanel.pdb
+		SpreadsheetPanel.XML = SpreadsheetPanel.XML
+		SpreadsheetUtilities.dll = SpreadsheetUtilities.dll
+		SpreadsheetUtilities.XML = SpreadsheetUtilities.XML
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetTests", "SpreadsheetTests\SpreadsheetTests.csproj", "{F739D23E-ACAD-4D8B-939B-4063F62618A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetGUI", "SpreadsheetGUI\SpreadsheetGUI.csproj", "{16163A1C-C1AD-4A47-8598-15AC82A2EF04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpreadsheetGUI_Tester", "SpreadsheetGUI_Tester\SpreadsheetGUI_Tester.csproj", "{89FBCE13-CB4A-436A-98B6-7B077F1B7D8B}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8772B33-BF43-4FD3-A301-24C5483CD7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8772B33-BF43-4FD3-A301-24C5483CD7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8772B33-BF43-4FD3-A301-24C5483CD7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8772B33-BF43-4FD3-A301-24C5483CD7F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F739D23E-ACAD-4D8B-939B-4063F62618A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F739D23E-ACAD-4D8B-939B-4063F62618A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F739D23E-ACAD-4D8B-939B-4063F62618A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F739D23E-ACAD-4D8B-939B-4063F62618A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16163A1C-C1AD-4A47-8598-15AC82A2EF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16163A1C-C1AD-4A47-8598-15AC82A2EF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16163A1C-C1AD-4A47-8598-15AC82A2EF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16163A1C-C1AD-4A47-8598-15AC82A2EF04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FBCE13-CB4A-436A-98B6-7B077F1B7D8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FBCE13-CB4A-436A-98B6-7B077F1B7D8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FBCE13-CB4A-436A-98B6-7B077F1B7D8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FBCE13-CB4A-436A-98B6-7B077F1B7D8B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,81 @@
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\obj\Debug\All Tests.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetPanel.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetPanel.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Control.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Formula.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\StringSocket.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetPanel.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Control.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Formula.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\bin\Debug\StringSocket.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\obj\Debug\All Tests.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetPanel.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\obj\Debug\All Tests.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\FormulaTester.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetPanel.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\obj\Debug\All Tests.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\FormulaTester\obj\Debug\FormulaTester.pdb

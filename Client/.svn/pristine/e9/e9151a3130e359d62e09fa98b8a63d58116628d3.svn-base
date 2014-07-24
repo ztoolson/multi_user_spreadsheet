@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SpreadsheetGUI
+{
+    /// <summary>
+    /// Portion of the solution that handls each visible spreadsheet window
+    /// Currently I am borrowing a large portion of this implementation from 
+    /// the demo provided in the class repository, 
+    /// so in a few ways I do not know exactly what is going on here,
+    /// or why it is going on,
+    /// hopefully that will change as this assignment is further implemented.
+    /// </summary>
+    class SpreadsheetApplicationContext : ApplicationContext
+    {
+        // Open window counter.
+        private int ssWindowCount = 0;
+        
+        // AppContext member ??
+        private static SpreadsheetApplicationContext ssAppContext;
+
+        //  AppContext constructor ??
+        private SpreadsheetApplicationContext()
+        {
+        }
+
+        //??
+        /// <summary>
+        /// ??????????????????????
+        /// </summary>
+        /// <returns></returns>
+        public static SpreadsheetApplicationContext getSSAppContext()
+        {
+            if (ssAppContext == null)
+                ssAppContext = new SpreadsheetApplicationContext();
+
+            return ssAppContext;
+        }
+
+        /// <summary>
+        /// ??????????????????????????????
+        /// </summary>
+        /// <param name="ssWindow"></param>
+        public void RunSpreadsheetForm(SpreadsheetWindow ssWindow)
+        {// Increment window count member upon launching of new SS window.
+            ssWindowCount++;
+            //  Event handler for closing of an SS window.  ????
+            //      I don't think this is actuall
+            ssWindow.FormClosed += (e, o) => { if (--ssWindowCount <= 0) ExitThread(); };
+        
+            //  Run Form.
+            ssWindow.Show();
+        }
+
+        public void RunNewSameSpreadsheetForm(SpreadsheetWindow ssWindow)
+        {
+            //  Event handler for closing of an SS window.  ????
+            ssWindow.FormClosed += (e, o) => { if (--ssWindowCount <= 0) ExitThread(); };
+
+            ssWindow = new SpreadsheetWindow();
+
+            //ssWindow.Show();
+
+            //ssWindow.
+
+        }
+    }
+
+
+    /// <summary>
+    /// Portion of the solution that handles the actually running of the GUI.
+    /// Currently I am borrowing a large portion of this implementation from 
+    /// the demo provided in the class repository, 
+    /// so in a few ways I do not know exactly what is going on here,
+    /// or why it is going on,
+    /// hopefully that will change as this assignment is further implemented.
+    /// </summary>
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            //  Start an SS application context and run a form inside of it.
+            SpreadsheetApplicationContext mainSSAppContext = SpreadsheetApplicationContext.getSSAppContext();
+            //  ???
+            mainSSAppContext.RunSpreadsheetForm(new SpreadsheetWindow());
+            //  ??
+            Application.Run(mainSSAppContext);
+        }
+    }
+}

@@ -1,0 +1,9 @@
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\bin\Debug\OpenFromFileList.exe.config
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\bin\Debug\OpenFromFileList.exe
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\bin\Debug\OpenFromFileList.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\obj\Debug\OpenFromFileList.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\obj\Debug\SpreadsheetClient.OpenFilelist.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\obj\Debug\SpreadsheetClient.Properties.Resources.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\obj\Debug\OpenFromFileList.csproj.GenerateResource.Cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\obj\Debug\OpenFromFileList.exe
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\OpenFromFileList\obj\Debug\OpenFromFileList.pdb

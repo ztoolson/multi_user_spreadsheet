@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SpreadsheetTests</name>
+    </assembly>
+    <members>
+        <member name="T:SpreadsheetTests.SpreadsheetTests.GradingTests">
+             <summary>
+            This is a test class for SpreadsheetTest and is intended
+            to contain all SpreadsheetTest Unit Tests
+            </summary>
+        </member>
+        <member name="P:SpreadsheetTests.SpreadsheetTests.GradingTests.TestContext">
+             <summary>
+            Gets or sets the test context which provides
+            information about and functionality for the current test run.
+            </summary>
+        </member>
+    </members>
+</doc>

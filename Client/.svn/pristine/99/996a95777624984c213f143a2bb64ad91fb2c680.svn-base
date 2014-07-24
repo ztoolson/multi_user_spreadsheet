@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Evaluator</name>
+    </assembly>
+    <members>
+        <member name="T:FormulaEvaluator.Evaluator">
+            <summary>
+            This class computes infix expressions.
+            </summary>
+        </member>
+        <member name="M:FormulaEvaluator.Evaluator.Evaluate(System.String,FormulaEvaluator.Evaluator.Lookup)">
+            <summary>
+            This method evaluates infix expressions, 
+            including the handling of variables.
+            </summary>
+            <param name="exp">The infix expression to be evaluated</param>
+            <param name="variableEvaluator">The delegate that handles
+            the method that returns values for variables in the infix expression</param>
+            <returns>The solution to the "exp" infix expression</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,11 @@
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\FormulaTester.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\FormulaTester.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\Formula.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\Formula.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\obj\Debug\FormulaTester.dll
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\obj\Debug\FormulaTester.pdb
+C:\Users\Mike\Desktop\Fixing the spreadsheet for 3505\Soloutions we will use for the Final Spreadsheet\PS6(1)Copy - Power pack problems\FormulaTester\obj\Debug\FormulaTester.csprojResolveAssemblyReference.cache

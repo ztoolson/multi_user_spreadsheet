@@ -1,0 +1,5 @@
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\ParseMessage\bin\Release\ParseMessage.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\ParseMessage\bin\Release\ParseMessage.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\ParseMessage\obj\Release\ParseMessage.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\ParseMessage\obj\Release\ParseMessage.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\ParseMessage\obj\Release\ParseMessage.pdb

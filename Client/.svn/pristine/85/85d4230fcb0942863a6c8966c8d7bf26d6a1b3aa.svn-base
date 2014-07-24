@@ -1,0 +1,273 @@
+﻿namespace SpreadsheetGUI
+{
+    partial class SpreadsheetWindow
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.FileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.newInThisWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newInSeperateWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.CloseOption = new System.Windows.Forms.ToolStripMenuItem();
+            this.CellNameLabel = new System.Windows.Forms.Label();
+            this.CellNameTextBox = new System.Windows.Forms.TextBox();
+            this.CellValueLabel = new System.Windows.Forms.Label();
+            this.CellValueTextBox = new System.Windows.Forms.TextBox();
+            this.CellContentsLabel = new System.Windows.Forms.Label();
+            this.CellContentsTextBox = new System.Windows.Forms.TextBox();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.DividingLine = new Microsoft.VisualBasic.PowerPacks.LineShape();
+            this.spreadsheetPanel1 = new SS.SpreadsheetPanel();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.menuStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileMenu});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(877, 27);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // FileMenu
+            // 
+            this.FileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewOption,
+            this.SaveOption,
+            this.OpenOption,
+            this.CloseOption});
+            this.FileMenu.Font = new System.Drawing.Font("Stencil", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FileMenu.Name = "FileMenu";
+            this.FileMenu.Size = new System.Drawing.Size(54, 23);
+            this.FileMenu.Text = "File";
+            // 
+            // NewOption
+            // 
+            this.NewOption.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newInThisWindowToolStripMenuItem,
+            this.newInSeperateWindowToolStripMenuItem});
+            this.NewOption.Name = "NewOption";
+            this.NewOption.Size = new System.Drawing.Size(124, 24);
+            this.NewOption.Text = "New";
+            // 
+            // newInThisWindowToolStripMenuItem
+            // 
+            this.newInThisWindowToolStripMenuItem.Name = "newInThisWindowToolStripMenuItem";
+            this.newInThisWindowToolStripMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.newInThisWindowToolStripMenuItem.Text = "New In This Window";
+            this.newInThisWindowToolStripMenuItem.Click += new System.EventHandler(this.newInThisWindowToolStripMenuItem_Click);
+            // 
+            // newInSeperateWindowToolStripMenuItem
+            // 
+            this.newInSeperateWindowToolStripMenuItem.Name = "newInSeperateWindowToolStripMenuItem";
+            this.newInSeperateWindowToolStripMenuItem.Size = new System.Drawing.Size(281, 24);
+            this.newInSeperateWindowToolStripMenuItem.Text = "New In Separate Window";
+            this.newInSeperateWindowToolStripMenuItem.Click += new System.EventHandler(this.newInSeperateWindowToolStripMenuItem_Click);
+            // 
+            // SaveOption
+            // 
+            this.SaveOption.Name = "SaveOption";
+            this.SaveOption.Size = new System.Drawing.Size(124, 24);
+            this.SaveOption.Text = "Save";
+            this.SaveOption.Click += new System.EventHandler(this.SaveOption_Click);
+            // 
+            // OpenOption
+            // 
+            this.OpenOption.Name = "OpenOption";
+            this.OpenOption.Size = new System.Drawing.Size(124, 24);
+            this.OpenOption.Text = "Open";
+            this.OpenOption.Click += new System.EventHandler(this.OpenOption_Click);
+            // 
+            // CloseOption
+            // 
+            this.CloseOption.Name = "CloseOption";
+            this.CloseOption.Size = new System.Drawing.Size(124, 24);
+            this.CloseOption.Text = "Close";
+            this.CloseOption.Click += new System.EventHandler(this.CloseOption_Click);
+            // 
+            // CellNameLabel
+            // 
+            this.CellNameLabel.AutoSize = true;
+            this.CellNameLabel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CellNameLabel.Location = new System.Drawing.Point(12, 33);
+            this.CellNameLabel.Name = "CellNameLabel";
+            this.CellNameLabel.Size = new System.Drawing.Size(86, 19);
+            this.CellNameLabel.TabIndex = 1;
+            this.CellNameLabel.Text = "Cell Name";
+            // 
+            // CellNameTextBox
+            // 
+            this.CellNameTextBox.Enabled = false;
+            this.CellNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CellNameTextBox.Location = new System.Drawing.Point(96, 29);
+            this.CellNameTextBox.Name = "CellNameTextBox";
+            this.CellNameTextBox.ReadOnly = true;
+            this.CellNameTextBox.Size = new System.Drawing.Size(53, 26);
+            this.CellNameTextBox.TabIndex = 2;
+            // 
+            // CellValueLabel
+            // 
+            this.CellValueLabel.AutoSize = true;
+            this.CellValueLabel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CellValueLabel.Location = new System.Drawing.Point(171, 33);
+            this.CellValueLabel.Name = "CellValueLabel";
+            this.CellValueLabel.Size = new System.Drawing.Size(51, 19);
+            this.CellValueLabel.TabIndex = 3;
+            this.CellValueLabel.Text = "Value";
+            // 
+            // CellValueTextBox
+            // 
+            this.CellValueTextBox.Enabled = false;
+            this.CellValueTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CellValueTextBox.Location = new System.Drawing.Point(218, 29);
+            this.CellValueTextBox.Name = "CellValueTextBox";
+            this.CellValueTextBox.ReadOnly = true;
+            this.CellValueTextBox.Size = new System.Drawing.Size(104, 26);
+            this.CellValueTextBox.TabIndex = 4;
+            // 
+            // CellContentsLabel
+            // 
+            this.CellContentsLabel.AutoSize = true;
+            this.CellContentsLabel.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CellContentsLabel.Location = new System.Drawing.Point(328, 33);
+            this.CellContentsLabel.Name = "CellContentsLabel";
+            this.CellContentsLabel.Size = new System.Drawing.Size(80, 19);
+            this.CellContentsLabel.TabIndex = 5;
+            this.CellContentsLabel.Text = "Contents";
+            // 
+            // CellContentsTextBox
+            // 
+            this.CellContentsTextBox.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CellContentsTextBox.Location = new System.Drawing.Point(414, 30);
+            this.CellContentsTextBox.Name = "CellContentsTextBox";
+            this.CellContentsTextBox.Size = new System.Drawing.Size(407, 26);
+            this.CellContentsTextBox.TabIndex = 6;
+            this.CellContentsTextBox.TextChanged += new System.EventHandler(this.CellContentsTextBox_TextChanged);
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.DividingLine});
+            this.shapeContainer1.Size = new System.Drawing.Size(877, 408);
+            this.shapeContainer1.TabIndex = 7;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // DividingLine
+            // 
+            this.DividingLine.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.DividingLine.BorderWidth = 4;
+            this.DividingLine.Name = "DividingLine";
+            this.DividingLine.X1 = 7;
+            this.DividingLine.X2 = 1139;
+            this.DividingLine.Y1 = 69;
+            this.DividingLine.Y2 = 68;
+            // 
+            // spreadsheetPanel1
+            // 
+            this.spreadsheetPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spreadsheetPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.spreadsheetPanel1.Location = new System.Drawing.Point(0, 68);
+            this.spreadsheetPanel1.Name = "spreadsheetPanel1";
+            this.spreadsheetPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.spreadsheetPanel1.Size = new System.Drawing.Size(877, 340);
+            this.spreadsheetPanel1.TabIndex = 8;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "ss";
+            this.saveFileDialog1.Filter = "\"Spreadsheet Files (*.ss)|*.ss|All Files(*.*)|*.*\"";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "ss";
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "\"Spreadsheet Files (*.ss)|*.ss|All Files(*.*)|*.*\"";
+            // 
+            // SpreadsheetWindow
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(877, 408);
+            this.Controls.Add(this.spreadsheetPanel1);
+            this.Controls.Add(this.CellContentsTextBox);
+            this.Controls.Add(this.CellContentsLabel);
+            this.Controls.Add(this.CellValueTextBox);
+            this.Controls.Add(this.CellValueLabel);
+            this.Controls.Add(this.CellNameTextBox);
+            this.Controls.Add(this.CellNameLabel);
+            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.shapeContainer1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "SpreadsheetWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Spreadsheet";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem FileMenu;
+        private System.Windows.Forms.ToolStripMenuItem NewOption;
+        private System.Windows.Forms.ToolStripMenuItem SaveOption;
+        private System.Windows.Forms.ToolStripMenuItem OpenOption;
+        private System.Windows.Forms.ToolStripMenuItem CloseOption;
+        private System.Windows.Forms.Label CellNameLabel;
+        private System.Windows.Forms.TextBox CellNameTextBox;
+        private System.Windows.Forms.Label CellValueLabel;
+        private System.Windows.Forms.TextBox CellValueTextBox;
+        private System.Windows.Forms.Label CellContentsLabel;
+        private System.Windows.Forms.TextBox CellContentsTextBox;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape DividingLine;
+        private SS.SpreadsheetPanel spreadsheetPanel1;
+        private System.Windows.Forms.ToolStripMenuItem newInThisWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newInSeperateWindowToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+
+    }
+}
+

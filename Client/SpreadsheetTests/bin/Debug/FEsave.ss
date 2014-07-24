@@ -1,0 +1,1 @@
+﻿<spreadsheet version="ps6"><cell><name>A1</name><contents>=A2</contents></cell></spreadsheet>

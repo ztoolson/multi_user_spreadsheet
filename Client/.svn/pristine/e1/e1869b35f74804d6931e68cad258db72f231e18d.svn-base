@@ -1,0 +1,480 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace FormulaEvaluator
+{
+    /// <summary>
+    /// This class computes infix expressions.
+    /// </summary>
+    public static class Evaluator
+    {
+        //Need two stacks for values and operators.
+        private static Stack<Double> ValueStack;
+        //Declaration only here to avoid lingering static values.
+        private static Stack<String> OperatorStack;
+
+        //A delegate that matches a method that takes in a String and returns and int.
+        public delegate double Lookup(String v);
+
+        //Declare a "Lookup" object.
+        public static Lookup lookedUpValue;
+
+        /// <summary>
+        /// This method evaluates infix expressions, 
+        /// including the handling of variables.
+        /// </summary>
+        /// <param name="exp">The infix expression to be evaluated</param>
+        /// <param name="variableEvaluator">The delegate that handles
+        /// the method that returns values for variables in the infix expression</param>
+        /// <returns>The solution to the "exp" infix expression</returns>
+        public static double Evaluate(String exp, Lookup variableEvaluator/*, Func<string, string> Normalizer*/)
+        {
+            //Instantiate "OperatorStack".
+            OperatorStack = new Stack<String>();
+            ValueStack = new Stack<Double>();
+
+            //ValueStack pops will be assigned here.
+            double valuePop;
+            double secondValuePop;
+            //OperatorValue pops will be assigned here.
+            String operatorPop = null;
+            //Used when TryParsing();
+            double parseResult;
+            //The last token will be assigned to here.
+            double lastToken = -1;
+            //For testing each individual token for validity
+            String testString;
+            //For testing each individual token for validity
+            double number = 0;
+            //Flag for token validity
+            bool numberFound = false;
+
+            //Make a new "Lookup" instance.
+            lookedUpValue = new Lookup(variableEvaluator);
+
+            //Parse "exp" into a string array of separate "legal" tokens.
+            string[] substrings = Regex.Split(exp, "(\\()|(\\))|(-)|(\\+)|(\\*)|(/)");
+
+            //Try the implementation below, 
+            //if any exceptions are thrown, they will be caught, 
+            //and then converted into ArgumentExceptions with descriptive messages.
+            try
+            {
+                //Visit each token in "substrings".
+                for (int tokenPos = 0; tokenPos <= substrings.Length - 1; tokenPos++)
+                {
+                    testString = substrings[tokenPos].Trim();
+
+                    //Check first to see if a token has exclusively made up of chars.
+                    foreach (char letter in testString)
+                    {
+                        if (Double.TryParse(letter.ToString(), out number) && (!letter.Equals("+") && !letter.Equals("-") && !letter.Equals("*") && !letter.Equals("/") && !letter.Equals("(") && !letter.Equals(")") && !letter.Equals("") && !letter.Equals(" ")))
+                        {       //trip boolean flag upon finding of digit.
+                            numberFound = true;
+                        }
+                    }
+                    //if Boolean flag has not been tripped...
+                    if (numberFound == false && !testString.Equals("") && !testString.Equals("(") && !testString.Equals(")") && !testString.Equals("+") && !testString.Equals("*") && !testString.Equals("/") && !testString.Equals("-"))
+                        //throw new ArgumentException("Invalid token detected.");
+
+                        //If token is an empty string that is inexplicably caused by a '(' or ')'...
+                        if (substrings[tokenPos].Equals("") || substrings[tokenPos].Equals(" "))
+                        {
+                            //...and if we are currently at the last token...
+                            if (tokenPos == substrings.Length - 1)
+                            {       //assign the top valueStack item to "lastToken", 
+                                //so that this program will work in the weeds.
+                                lastToken = ValueStack.Pop();
+                                //set flag back to false.
+                                numberFound = false;
+                                continue;
+                            }
+                            //Move to the next token
+                            //set flag back to false.
+                            numberFound = false;
+                            continue;
+                        }
+                    //If token is an integer...
+                    if (Double.TryParse(substrings[tokenPos], out parseResult))
+                    {              //...If the operator stack is empty...
+                        if (OperatorStack.Count == 0)
+                        {       //Push parsed token onto "ValueStack".
+                            ValueStack.Push(parseResult);
+                            //set flag back to false.
+                            numberFound = false;
+                            //Move onto next token, save time debugging ;)
+                            continue;
+                        }
+                        //Else if the operator stack is not empty...
+                        else
+                        {
+                            // ...If * or / is at the top of the operator stack... 
+                            if (OperatorStack.Peek().Equals("*") || OperatorStack.Peek().Equals("/"))
+                            {       //...Pop the value stack...
+                                valuePop = ValueStack.Pop();
+                                //...Pop the operator stack. 
+                                operatorPop = OperatorStack.Pop();
+
+                                //Apply the popped operator to token and the popped number.  
+                                //If popped operator is '*' ...
+                                if (operatorPop.Equals("*"))
+                                {
+                                    //...Push the product onto the value stack. 
+                                    ValueStack.Push(Double.Parse(substrings[tokenPos]) * valuePop);
+                                    //set flag back to false.
+                                    numberFound = false;
+                                    //Move onto next token, save time debugging.
+                                    continue;
+                                }
+                                //Else if popped operator is '/' ...
+                                else if (operatorPop.Equals("/"))
+                                {
+                                    //Check to see if there is a division by zero.
+                                    if (Double.Parse(substrings[tokenPos]) == 0)
+                                        throw new DivideByZeroException();
+                                    //Push the ratio onto the value stack. 
+                                    ValueStack.Push((valuePop / Double.Parse(substrings[tokenPos]))); //This is problematic as far as rounding is concerned
+                                    //set flag back to false.
+                                    numberFound = false;
+                                    //Move onto next token, save time debugging.
+                                    continue;
+                                }
+                            }
+                        }
+                    }  //<--- End of integer handling case.
+
+                    //if token is a variable...
+                    //...i.e. token starts with one or more number of letters, 
+                    //followed by and ending with one or more digits.
+                    //Explanation of regular expression:
+                    //Starting with one or more of any letter (either upper or lower case),
+                    //followed by, and ending with, one or more digitS.
+                    // "^" : starting with.
+                    // "[a-z]" : any character within the character class of lower letters.
+                    //  "|" : or.
+                    //  "[A-Z]" : any character with in the character class of uppercase letters.
+                    // "+" : one or more.
+                    // "\\d" : any digit.
+                    // "$" : ending with.
+                    //While this regex does help to identify  tokens as variables,
+                    //it only identifies a variable from its first and last 
+                    //group of characters. Further scrutiny of variable validity is
+                    //is executed in the if block below.
+                    //Lastly, in case of any leading or trailing whitespace at any given 
+                    //position in "substrings", use .Trim().
+                    if (Regex.IsMatch(substrings[tokenPos].Trim(), "(^[a-z]|[A-Z])+\\d*$"))
+                    {
+                        //Store the current token position.
+                        //String testString = substrings[tokenPos].Trim();
+                        double stringPositionValue;
+                        //These three variables are used to further verify the validity of a
+                        //variable token.
+                        char previousChar = 'a';
+                        double previousCharInt;
+                        double currentCharInt;
+
+                        //If "testString" starts with an integer 
+                        //and it has the passed the regex filter above...
+                        if (double.TryParse((testString[0].ToString()), out stringPositionValue))
+                            //...invalid token, throw exception.
+                            throw new ArgumentException("Invalid variable token");
+
+                        ////Even further verify that a variable token is in the correct format by
+                        ////Scanning each position in "stringPositionValue".
+                        //foreach (char letter in testString)                                           //CHANGED FOR PS3
+                        //{
+                        //    //test case A1A1
+                        //    //If a letter follows a digit in the token...
+                        //    if (double.TryParse(previousChar.ToString(), out previousCharInt) && !(double.TryParse(letter.ToString(), out currentCharInt)))
+                        //    {           //...invalid token, Throw exception
+                        //        throw new ArgumentException("Invalid variable token");
+                        //    }   //Else if exception is not thrown, 
+                        //    //update "previousChar" to current position in "testString".
+                        //    previousChar = letter;
+                        //}
+                        //If the operator stack is empty...
+                        if (OperatorStack.Count == 0)
+                        {
+                            //Push the trimmed returned variable value of the delegate onto the stack.
+                            ValueStack.Push(lookedUpValue(substrings[tokenPos].Trim()));
+                            //set flag back to false.
+                            numberFound = false;
+                            //Move onto next token, save time debugging ;)
+                            continue;
+                        }
+                        //Else if the operator stack is not empty...
+                        else
+                        {
+                            // ...and if '*' or '/' is at the top of the operator stack... 
+                            if (OperatorStack.Peek().Equals("*") || OperatorStack.Peek().Equals("/"))
+                            {       //Pop the value stack.
+                                valuePop = ValueStack.Pop();
+                                //Pop the operator stack. 
+                                operatorPop = OperatorStack.Pop();
+
+                                //Apply the popped operator to "token" and the popped number.  
+                                //If popped operator is '*' ...
+                                if (operatorPop.Equals("*"))
+                                {
+                                    //...Push the product onto the value stack. 
+                                    ValueStack.Push(lookedUpValue(substrings[tokenPos].Trim()) * valuePop);
+                                    //set flag back to false.
+                                    numberFound = false;
+                                    //Move onto next token, save time debugging.
+                                    continue;
+                                }
+                                //Else if popped operator is '/' ...
+                                else if (operatorPop.Equals("/"))
+                                {
+                                    //Check to see if there is a division by zero.
+                                    if (lookedUpValue(substrings[tokenPos].Trim()) == 0)
+                                        throw new DivideByZeroException();
+                                    //Push the ratio onto the value stack.      
+                                    ValueStack.Push((valuePop / lookedUpValue(substrings[tokenPos].Trim())));
+                                    //set flag back to false.
+                                    numberFound = false;
+                                    //Move onto next token, save time debugging.
+                                    continue;
+                                }
+                            }
+                        }
+                        //Otherwise, push the trimmed variable onto the value stack
+                        ValueStack.Push(lookedUpValue(substrings[tokenPos].Trim()));    //HERE!!!!!
+                        //set flag back to false.
+                        numberFound = false;
+                        //Move onto next token, save time debugging.
+                        continue;
+                    }       //<---- End of  variable handling case.
+
+                    //if "token" is '+' or '-' ...
+                    if (substrings[tokenPos].Equals("+") || substrings[tokenPos].Equals("-"))
+                    {       //...and if the operator stack contains tokens...
+                        if (OperatorStack.Count > 0)
+                        {
+                            //If '+' or '-' is at the top of the operator stack...
+                            if (OperatorStack.Peek() == "+" || OperatorStack.Peek() == "-")
+                            {
+                                // ...pop the value stack twice...
+                                valuePop = ValueStack.Pop();
+                                secondValuePop = ValueStack.Pop();
+                                //...Pop the operator stack once.
+                                operatorPop = OperatorStack.Pop();
+
+                                //If "operatorPop' is '+' ...
+                                if (operatorPop.Equals("+"))
+                                    //Apply + to the popped numbers 
+                                    //and push the sum onto the value stack.
+                                    ValueStack.Push(valuePop + secondValuePop);
+                                //If "operatorPop" is '-' ...
+                                if (operatorPop.Equals("-"))
+                                {
+                                    //Apply '-' to the popped numbers and push the sum onto the value stack.
+                                    ValueStack.Push(secondValuePop - valuePop);
+                                }
+                            }
+                        }
+
+                        //Next, push token onto the operator stack
+                        OperatorStack.Push(substrings[tokenPos]);
+                        //set flag back to false.
+                        numberFound = false;
+                        //Move onto next token, save time debugging.
+                        continue;
+                    }                                               //<--- end of '+' or '-' case.
+
+                    //If token is '*' or '/'...
+                    if (substrings[tokenPos].Equals("*") || substrings[tokenPos].Equals("/"))
+                    {
+                        //Push token onto the operator stack
+                        OperatorStack.Push(substrings[tokenPos]);
+                        //set flag back to false.
+                        numberFound = false;
+                        //Move onto the next token
+                        continue;
+                    }
+
+                    //If token is '(' ...
+                    if (substrings[tokenPos].Equals("("))
+                    {
+                        //...Push token onto the operator stack
+                        OperatorStack.Push(substrings[tokenPos]);
+                        //set flag back to false.
+                        numberFound = false;
+                        //Move onto next token.
+                        continue;
+                    }
+
+                    //If token is ')' ...
+                    if (substrings[tokenPos].Equals(")"))
+                    {
+                        //If the Operator stack is not empty....
+                        if (OperatorStack.Count > 0)
+                        {
+                            // If '+' or '-' is at the top of the operator stack...
+                            if (OperatorStack.Peek() == "+" || OperatorStack.Peek() == "-")
+                            {
+                                //...pop the value stack twice...
+                                valuePop = ValueStack.Pop();
+                                secondValuePop = ValueStack.Pop();
+                                //...Pop the operator stack once.  
+                                operatorPop = OperatorStack.Pop();
+
+                                //Apply the popped operator to the popped numbers.  
+                                //If the popped operator is a '+' ...
+                                if (operatorPop.Equals("+"))
+                                {
+                                    //...Push the result onto the value stack.
+                                    ValueStack.Push(valuePop + secondValuePop);
+                                }
+                                //If the popped operator is a '-' ...
+                                if (operatorPop.Equals("-"))
+                                {
+                                    //...Push the result onto the value stack.
+                                    ValueStack.Push(secondValuePop - valuePop);
+                                }
+                            }
+                            //Next, the top of the operator stack should be a '('.  Pop it.
+                            if (OperatorStack.Peek().Equals("("))
+                                OperatorStack.Pop();
+
+                            //Finally, if '*' or '/' is at the top of the operator stack...
+                            //Check first for an empty stack.
+                            if (OperatorStack.Count > 0)
+                            {       //If there is a '*' or '/' on top of the operator stack...
+                                if (OperatorStack.Peek().Equals("*") || OperatorStack.Peek().Equals("/"))
+                                {
+                                    //...Pop the value stack twice.
+                                    valuePop = ValueStack.Pop();
+                                    secondValuePop = ValueStack.Pop();
+                                    //...Pop the operator stack once.  
+                                    operatorPop = OperatorStack.Pop();
+
+                                    //Apply the popped operator to the popped numbers.  
+                                    //If the popped operator is '*' ...
+                                    if (operatorPop.Equals("*"))
+                                    {       //...Push the result onto the value stack.
+                                        ValueStack.Push(valuePop * secondValuePop);
+                                        //set flag back to false.
+                                        numberFound = false;
+                                        //Move onto the next token.
+                                        continue;
+                                    }
+                                    //If the popped operator is '/' ...
+                                    if (operatorPop.Equals("/"))
+                                    {       //Push the result onto the value stack.
+                                        ValueStack.Push(secondValuePop / valuePop);
+                                        //set flag back to false.
+                                        numberFound = false;
+                                        //Move onto the next token.
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //If the current token position is at the end of the "substrings" array...
+                    if (tokenPos == substrings.Length - 1)
+                    {
+                        //...We have reached the last token which should be a number.
+                        if (Double.TryParse(substrings[tokenPos], out parseResult))
+                            //Assign last token to "lastToken".
+                            lastToken = parseResult;
+                    }
+                    //...Else if we have arrived at the last token 
+                    //AND the last token is an empty string...
+                    else if (tokenPos == substrings.Length - 1 && (substrings[tokenPos].Equals("") || substrings[tokenPos].Equals(" ")))
+                        //...ignore the empty string and break out of the for loop.
+                        break;
+                    //...Else if we have NOT arrived at the last token, 
+                    //and the current token is an integer...
+                    else
+                    {         //This is the final frontier...of not exactly following instructions.
+                        if (Double.TryParse(substrings[tokenPos], out parseResult))
+                            //Push the current token onto the value stack.
+                            ValueStack.Push(parseResult);
+                    }
+                }  //<--end of for-loop for each token in "substrings".
+
+            }   //<----  end of try block
+            //Handle division by zero.
+            catch (DivideByZeroException e)
+            {
+                throw new ArgumentException("Cannot divide by zero.");
+            }
+            //Handle invalid expressions.
+            catch (InvalidOperationException e)
+            {
+                throw new ArgumentException("The value stack contains fewer than 2 values");
+            }
+            //Now this program is in the weeds...beyond the final frontier.
+            try
+            {
+                //If the operator stack is empty, 
+                //the solution to "exp" should be the only value on the value stack.
+                if (OperatorStack.Count == 0)
+                {
+                    //If there is a value to pop off of the Value Stack...
+                    if (ValueStack.Count == 1)
+                        //Return said value.
+                        return ValueStack.Pop();
+                    //Else if there is not a value to pop off of the value stack...
+                    else
+                        return lastToken;
+                }
+                //Else if the operator stack is not empty once all tokens have been processed...
+                else
+                {
+                    //If the last operator on the stack is '+' ...
+                    if (OperatorStack.Peek() == "+")
+                    {       //...Pop the operator stack.
+                        OperatorStack.Pop();
+                        //If there are 2 items on the value stack...
+                        if (ValueStack.Count == 2)
+                        {
+                            //...Pop the value stack twice.
+                            valuePop = ValueStack.Pop();
+                            secondValuePop = ValueStack.Pop();
+                            //Return the sum of the two popped items.
+                            return valuePop + secondValuePop;
+                        }   //Now we are even deeper into the weeds...
+                        else                    //Return the final solution to "exp".
+                            return ValueStack.Pop() + lastToken;
+                    }
+
+                    //If the last operator on the stack is '-' ...
+                    if (OperatorStack.Peek() == "-")
+                    {       //... pop the operator stack.
+                        OperatorStack.Pop();
+                        //If there are two items on the value stack...
+                        if (ValueStack.Count == 2)
+                        {
+                            //...Pop the value stack twice.
+                            valuePop = ValueStack.Pop();
+                            secondValuePop = ValueStack.Pop();
+                            //Return the sum of the two popped items.
+                            return secondValuePop - valuePop;
+                        }
+                        //Else we are ready to return the final solution to "exp".
+                        else
+                        {      //Return the final solution to "exp".
+                            return ValueStack.Pop() - lastToken;
+                        }
+                    }
+                }
+
+                //This better not ever  be reached!
+                return -12345;
+
+            }       //Handle invalid expressions.
+            catch (InvalidOperationException e)
+            {
+                throw new ArgumentException("Value Stack is empty.");
+            }
+
+        }   // <--end of Evaluate method.
+    }
+}

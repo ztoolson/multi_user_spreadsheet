@@ -1,0 +1,133 @@
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Control.dll.config
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\SpreadsheetPanel.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\SpreadsheetClient.Authentication.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\SpreadsheetClient.OpenFileList.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\MVC.csproj.GenerateResource.Cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-14-2014-Early\PS6 Copy\Control\obj\Debug\Control.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Control.dll.config
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Control.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Control.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Formula.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\ParseMessage.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Spreadsheet.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\StringSocket.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Evaluator.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Formula.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\ParseMessage.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Spreadsheet.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\StringSocket.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\Evaluator.pdb
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.xml
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\SpreadsheetClient.Authentication.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\SpreadsheetClient.OpenFileList.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\MVC.csproj.GenerateResource.Cache
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\Control.dll
+C:\Users\Mike\Desktop\Fixing SS 3505\Solutions for Final SS\PS6 Copy\Control\obj\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Control.dll.config
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\SpreadsheetClient.Authentication.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\SpreadsheetClient.OpenFileList.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\MVC.csproj.GenerateResource.Cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-18-2014-MID\PS6 Copy\Control\obj\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Control.dll.config
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\SpreadsheetClient.Authentication.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\SpreadsheetClient.OpenFileList.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\MVC.csproj.GenerateResource.Cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-19-2014-mid\PS6 Copy\Control\obj\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Control.dll.config
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\SpreadsheetClient.Authentication.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\SpreadsheetClient.OpenFileList.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\MVC.csproj.GenerateResource.Cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-21-2014-late\PS6 Copy\Control\obj\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Control.dll.config
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Control.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Formula.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\ParseMessage.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Spreadsheet.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\StringSocket.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Evaluator.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Formula.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\ParseMessage.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Spreadsheet.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\StringSocket.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\Evaluator.pdb
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\bin\Debug\SpreadsheetUtilities.xml
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\MVC.csprojResolveAssemblyReference.cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\SpreadsheetClient.Authentication.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\SpreadsheetClient.OpenFileList.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\SpreadsheetClient.SpreadsheetWindow.resources
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\MVC.csproj.GenerateResource.Cache
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\Control.dll
+\\chips.eng.utah.edu\home\mfleming\.win_desktop\4-22-2014-mid\PS6 Copy\Control\obj\Debug\Control.pdb
